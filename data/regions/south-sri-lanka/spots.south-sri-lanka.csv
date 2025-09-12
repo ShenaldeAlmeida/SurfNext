@@ -1,0 +1,4 @@
+region_slug,spot_slug,name,description,lat,lon,level,type,sheltered
+south-sri-lanka,weligama,Weligama,"Expansive bay with soft beachbreak peaks; popular as the main learner spot.",5.97437,80.43161,B,beach,true
+south-sri-lanka,mirissa-reef,Mirissa Reef,"Small right-hander over reef; better for intermediates who want something punchier.",5.94826,80.47159,I,reef,false
+south-sri-lanka,marshmallow,Marshmallow,"Playful reef outside Ahangama; mellow take-offs with shallow inside sections.",5.94890,80.46520,I,reef,false
