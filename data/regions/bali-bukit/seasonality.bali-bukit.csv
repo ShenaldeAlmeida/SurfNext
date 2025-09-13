@@ -1,0 +1,13 @@
+region_slug,month,swell,windiness,air_temp_c,water_temp_c,wetsuit
+bali-bukit,1,medium,windy,28.0,28.0,no-wetsuit
+bali-bukit,2,medium,windy,28.0,28.0,no-wetsuit
+bali-bukit,3,medium,moderate,28.0,28.0,no-wetsuit
+bali-bukit,4,large,calm,28.0,28.0,no-wetsuit
+bali-bukit,5,large,calm,28.0,27.0,no-wetsuit
+bali-bukit,6,large,calm,27.0,27.0,no-wetsuit
+bali-bukit,7,large,calm,27.0,26.0,no-wetsuit
+bali-bukit,8,large,calm,27.0,26.0,no-wetsuit
+bali-bukit,9,large,calm,27.0,27.0,no-wetsuit
+bali-bukit,10,large,moderate,28.0,27.0,no-wetsuit
+bali-bukit,11,medium,windy,28.0,28.0,no-wetsuit
+bali-bukit,12,medium,windy,28.0,28.0,no-wetsuit

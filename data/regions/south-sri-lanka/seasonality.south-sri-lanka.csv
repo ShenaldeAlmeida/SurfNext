@@ -1,1 +1,13 @@
 region_slug,month,swell,windiness,air_temp_c,water_temp_c,wetsuit
+south-sri-lanka,1,medium,moderate,30.0,28.0,no-wetsuit
+south-sri-lanka,2,small,calm,30.0,28.0,no-wetsuit
+south-sri-lanka,3,medium,calm,30.0,29.0,no-wetsuit
+south-sri-lanka,4,medium,calm,30.0,29.0,no-wetsuit
+south-sri-lanka,5,large,windy,30.0,28.0,no-wetsuit
+south-sri-lanka,6,medium,windy,29.0,28.0,no-wetsuit
+south-sri-lanka,7,medium,windy,29.0,28.0,no-wetsuit
+south-sri-lanka,8,medium,windy,29.0,28.0,no-wetsuit
+south-sri-lanka,9,medium,moderate,29.0,28.0,no-wetsuit
+south-sri-lanka,10,medium,moderate,29.0,28.0,no-wetsuit
+south-sri-lanka,11,medium,calm,29.0,28.0,no-wetsuit
+south-sri-lanka,12,medium,calm,29.0,28.0,no-wetsuit
