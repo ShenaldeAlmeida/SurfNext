@@ -1,4 +1,4 @@
-region_slug,spot_slug,name,description,lat,lon,level,type,sheltered
-bali-bukit,uluwatu,Uluwatu,"Iconic left reef with multiple take-off zones; consistent and powerful, suited to advanced surfers.",-8.82960,115.08330,A,reef,false
-bali-bukit,padang-padang,Padang Padang,"Hollow left reef; small inside corner offers a beginner-friendly beach area, while outside reef is advanced-only.",-8.81670,115.10320,B,beach,true
-bali-bukit,bingin,Bingin,"Mechanical left reef that barrels on mid tide; popular advanced wave on the Bukit.",-8.81830,115.10220,A,reef,false
+region_slug, spot_slug    , name         , description                                                                                                        , lat     , lon      , level, type , sheltered
+bali-bukit , uluwatu      , Uluwatu      , "Iconic left reef with multiple take-off zones; consistent and powerful, suited to advanced surfers."              , -8.82960, 115.08330, A    , reef , false
+bali-bukit , padang-padang, Padang Padang, "Hollow left reef; small inside corner offers a beginner-friendly beach area, while outside reef is advanced-only.", -8.81670, 115.10320, B    , beach, true
+bali-bukit , bingin       , Bingin       , "Mechanical left reef that barrels on mid tide; popular advanced wave on the Bukit."                               , -8.81830, 115.10220, A    , reef , false
