@@ -16,8 +16,7 @@ FROM _seasonality_stage s
 JOIN regions r ON r.region_slug = s.region_slug
 ON CONFLICT (region_id, month)
 DO UPDATE SET
-	swell 		 = excluded.swell 
-	windiness 	 = excluded.windiness 
+	swell 		 = excluded.swell, 
  	windiness    = EXCLUDED.windiness,
 	air_temp_c   = EXCLUDED.air_temp_c,
   	water_temp_c = EXCLUDED.water_temp_c,

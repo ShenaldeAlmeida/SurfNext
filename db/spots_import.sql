@@ -1,7 +1,7 @@
 
 --Reset staging table 
 
-TRUNCATE _spots_staging;
+TRUNCATE _spots_stage;
 
 --Upsert into spots 
 
