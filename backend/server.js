@@ -1,9 +1,11 @@
+// --- To load and swap between env variables ---
 import dotenv from "dotenv";
+//--- To works under the hood in Node for API requests ---
 import express from "express";
+//---
 import cors from "cors";
-// import { regionRouter } from "./src/routes/region_route.js";
-// import { spotsRouter } from "./src/routes/slug_route.js";
 
+// --- Checks if we are in dev or production and loads related environment variables ---
 let envFile;
 
 if (process.env.NODE_ENV == "production") {
@@ -14,23 +16,30 @@ if (process.env.NODE_ENV == "production") {
 
 dotenv.config({ path: envFile });
 
-const { regionRouter } = await import("./src/routes/region_route.js"); //need to wait for env file to load for pool obj (imports go straigh to first)
+// --- Loads Region and Spots routes eg actions done when API calls regions or spots ---
+const { regionRouter } = await import("./src/routes/region_route.js"); // need to wait for env file to load for pool obj (imports go straight to first)
 const { spotsRouter } = await import("./src/routes/slug_route.js");
 
+// --- Creates express obj instance- --
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: process.env.ALLOWED_ORIGINS.split(",") }));
 
+// --- Response for GET request with /regions ---
 app.use("/regions", regionRouter);
 app.use("/regions", spotsRouter);
 
-// app.get("/test", async (req, res) => {
-//   const result = await pool.query("SELECT region_name FROM regions");
-//   res.json(result.rows);
-// });
-
+// --- Checks Backend responds to calls - responds with status: ok JSON if GET request /health is sent ---
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
-app.listen(3000, () => console.log("Backend connected"));
+// --- Backend opens up on port set by env
+app.listen(Number(process.env.PORT), () => console.log("Backend connected"));
+
+/* REMOVED CODE 
+ app.get("/test", async (req, res) => {
+   const result = await pool.query("SELECT region_name FROM regions");
+   res.json(result.rows);
+ });
+*/

@@ -7,28 +7,28 @@ WITH counts AS (
     spots.region_id,
 
     -- Beginner (B)
-    SUM(CASE WHEN spots.level = 'B' THEN 1 ELSE 0 END)                                         AS q_count_b,
-    SUM(CASE WHEN spots.level = 'B' AND spots.sheltered = TRUE THEN 1 ELSE 0 END)              AS s_count_b,
-    COUNT(DISTINCT CASE WHEN spots.level = 'B' THEN spots.type END)                            AS variety_b,
+    SUM(CASE WHEN spots.level = 'B' THEN 1 ELSE 0 END)::int                                         AS q_count_b,
+    SUM(CASE WHEN spots.level = 'B' AND spots.sheltered = TRUE THEN 1 ELSE 0 END)::int              AS s_count_b,
+    COUNT(DISTINCT CASE WHEN spots.level = 'B' THEN spots.type END)::int                            AS variety_b,
 
     -- Intermediate (I)
-    SUM(CASE WHEN spots.level = 'I' THEN 1 ELSE 0 END)                                         AS q_count_i,
-    SUM(CASE WHEN spots.level = 'I' AND spots.sheltered = TRUE THEN 1 ELSE 0 END)              AS s_count_i,
-    COUNT(DISTINCT CASE WHEN spots.level = 'I' THEN spots.type END)                            AS variety_i,
+    SUM(CASE WHEN spots.level = 'I' THEN 1 ELSE 0 END)::int                                         AS q_count_i,
+    SUM(CASE WHEN spots.level = 'I' AND spots.sheltered = TRUE THEN 1 ELSE 0 END)::int              AS s_count_i,
+    COUNT(DISTINCT CASE WHEN spots.level = 'I' THEN spots.type END)::int                            AS variety_i,
 
     -- Advanced (A)
-    SUM(CASE WHEN spots.level = 'A' THEN 1 ELSE 0 END)                                         AS q_count_a,
-    SUM(CASE WHEN spots.level = 'A' AND spots.sheltered = TRUE THEN 1 ELSE 0 END)              AS s_count_a,
-    COUNT(DISTINCT CASE WHEN spots.level = 'A' THEN spots.type END)                            AS variety_a,
+    SUM(CASE WHEN spots.level = 'A' THEN 1 ELSE 0 END)::int                                         AS q_count_a,
+    SUM(CASE WHEN spots.level = 'A' AND spots.sheltered = TRUE THEN 1 ELSE 0 END)::int              AS s_count_a,
+    COUNT(DISTINCT CASE WHEN spots.level = 'A' THEN spots.type END)::int                            AS variety_a,
 
     -- FIRST_TIME (Beginner + beach)
-    SUM(CASE WHEN spots.level = 'B' AND spots.type = 'beach' THEN 1 ELSE 0 END)                AS q_count_firsttime,
+    SUM(CASE WHEN spots.level = 'B' AND spots.type = 'beach' THEN 1 ELSE 0 END)::int                AS q_count_firsttime,
     SUM(CASE WHEN spots.level = 'B' AND spots.type = 'beach' AND spots.sheltered = TRUE
-             THEN 1 ELSE 0 END)                                                                AS s_count_firsttime,
+             THEN 1 ELSE 0 END)::int                                                                AS s_count_firsttime,
 
     -- Region-wide beach info
-    SUM(CASE WHEN spots.type = 'beach' THEN 1 ELSE 0 END)                                      AS has_beach_any_count,
-    SUM(CASE WHEN spots.level = 'B' AND spots.type = 'beach' THEN 1 ELSE 0 END)                AS has_beginner_beach_count
+    SUM(CASE WHEN spots.type = 'beach' THEN 1 ELSE 0 END)::int                                      AS has_beach_any_count,
+    SUM(CASE WHEN spots.level = 'B' AND spots.type = 'beach' THEN 1 ELSE 0 END)::int                AS has_beginner_beach_count
 
   FROM spots
   GROUP BY spots.region_id

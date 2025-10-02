@@ -13,8 +13,8 @@ SELECT
 	s.spot_slug,
 	s.name,
 	s.description, 
-	s.lat::NUMERIC(8, 5),
-	s.lon::NUMERIC(8, 5),
+	s.lat::DOUBLE PRECISION,
+	s.lon::DOUBLE PRECISION,
 	s.level,
 	s.type,
 	s.sheltered::boolean 

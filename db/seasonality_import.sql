@@ -9,8 +9,8 @@ SELECT
 	s.month::SMALLINT,
 	s.swell,
 	s.windiness,
-	NULLIF(s.air_temp_c, '')::numeric(4,1),
-  	NULLIF(s.water_temp_c, '')::numeric(4,1),
+	NULLIF(s.air_temp_c, '')::DOUBLE PRECISION,
+  	NULLIF(s.water_temp_c, '')::DOUBLE PRECISION,
   	s.wetsuit
 FROM _seasonality_stage s 
 JOIN regions r ON r.region_slug = s.region_slug
