@@ -1,5 +1,5 @@
 import express from "express";
-import { region_data } from "../../sample.js";
+import { region_data } from "../../sample_regions_list.js";
 import { pool } from "../../pool.js";
 export const regionRouter = express.Router();
 import { isEligible, computeScore, rank } from "../helpers.js";

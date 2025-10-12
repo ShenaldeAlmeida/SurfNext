@@ -75,3 +75,102 @@ export function rank(rows) {
 
   return ranked;
 }
+
+export function isQualifying(row, ability) {
+  if (ability === "FIRST_TIME") {
+    return row.level === "B" && row.type === "beach";
+  }
+
+  if (ability === "BEGINNER") {
+    return row.level === "B";
+  }
+
+  if (ability === "INTERMEDIATE") {
+    return row.level === "I";
+  }
+
+  if (ability === "ADVANCED") {
+    return row.level === "A";
+  }
+
+  return false;
+}
+
+export function hasAnyBeach(spots) {
+  return spots.some((s) => s.type === "beach");
+}
+
+/**
+ * Convert 1..12 to a short month label.
+ * Returns empty string if out of range (defensive).
+ */
+export function monthShort(month) {
+  const names = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return Number.isInteger(month) && month >= 1 && month <= 12
+    ? names[month - 1]
+    : "";
+}
+
+/**
+ * Human label for ability (FIRST_TIME → "First time", etc.).
+ * Keeps formatting logic in one place.
+ */
+export function abilityLabel(ability) {
+  switch (ability) {
+    case "FIRST_TIME":
+      return "first timer";
+    case "BEGINNER":
+      return "beginner";
+    case "INTERMEDIATE":
+      return "intermediate";
+    case "ADVANCED":
+      return "advanced";
+    default:
+      return ability ?? "";
+  }
+}
+
+/**
+ * Build the user-facing explanation sentence for the detail view.
+ * Example: "For a Beginner in Nov, we have 4 qualifying spots (2 sheltered)."
+ *
+ * - Shows sheltered only when sCount > 0 (keeps it short).
+ * - Month uses short label ("Nov"); ability title-cased.
+ */
+export function buildExplanation({
+  region_name,
+  month,
+  ability,
+  qCount,
+  sCount,
+}) {
+  const m = monthShort(month);
+  const a = abilityLabel(ability);
+
+  // Base sentence
+  let text = `For ${
+    ["INTERMEDIATE", "ADVANCED"].includes(ability) ? "an" : "a"
+  } ${a} surfer in ${m}, we have ${qCount} qualifying spot${
+    qCount === 1 ? "" : "s"
+  } in ${region_name}`;
+
+  // Optional sheltered clause
+  if (sCount > 0) {
+    text += ` (${sCount} sheltered)`;
+  }
+
+  return text + ".";
+}

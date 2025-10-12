@@ -27,3 +27,13 @@ export function validateAbility(req, res, next) {
   req.validatedAbility = ability;
   next();
 }
+
+export function validateFormat(req, res, next) {
+  const { slug } = req.params;
+  const re = /^[a-z0-9-]+$/;
+  if (typeof slug !== "string" || !re.test(slug)) {
+    return res.status(400).json({ error: "slug must be of /^[a-z0-9-]+$/" });
+  }
+  req.validatedFormat = slug;
+  next();
+}
